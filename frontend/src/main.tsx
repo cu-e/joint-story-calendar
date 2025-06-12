@@ -1,8 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
 import { RouterProvider } from 'react-router'
 import { router } from './routes/router.tsx'
+import '@schedule-x/theme-default/dist/index.css'
+
+import './main.css';
 
 
 createRoot(document.getElementById('root')!).render(
