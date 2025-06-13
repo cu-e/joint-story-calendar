@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wdth,wght@0,75..100,100..700;1,75..100,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root{
+  --sx-color-primary: red
+}
+
 *{
     font-family: 'Inter', 'Raleway', sans-serif !important;
     margin: 0 ;
@@ -32,6 +36,9 @@ p{
 .square-calendar .sx-calendar .sx-calendar-content {
   flex: 1 1 auto;
   overflow: auto;
+}
+.sx__calendar{
+  border: none;
 }
 .sx__calendar-header.sx__calendar-header, .sx__month-agenda-events{
   display: none;
