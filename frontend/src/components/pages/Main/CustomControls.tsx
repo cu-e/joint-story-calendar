@@ -6,7 +6,7 @@ import styles from './CustomControls.module.css'
 type CalendarControlsPlugin = ReturnType<typeof createCalendarControlsPlugin>
 
 
-export function CustomControls({ controls, children }: { controls: CalendarControlsPlugin, children: React.ReactElement }) {
+function CustomControls({ controls, children }: { controls: CalendarControlsPlugin, children: React.ReactElement }) {
     const [currentDate, setCurrentDate] = useState(new Date());
 
     const format = (d: Date) => d.toISOString().split('T')[0]
@@ -49,3 +49,5 @@ export function CustomControls({ controls, children }: { controls: CalendarContr
    </div>
   )
 }
+
+export default CustomControls;

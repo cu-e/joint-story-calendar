@@ -10,7 +10,7 @@ import {
 } from '@schedule-x/calendar-controls'
 
 import styles from './MainPage.module.css'
-import { CustomControls } from './CustomControls'
+import CustomControls from './CustomControls'
 
 
 
