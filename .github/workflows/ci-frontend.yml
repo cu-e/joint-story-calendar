@@ -1,22 +1,29 @@
-name: Github CI
-on: [push]
+name: Frontend CI
+on:
+  push:
+    branches: [develop]
 jobs:
-  init:
+  frontend-build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [20.x]
+    defaults:
+      run:
+        working-directory: frontend
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm' 
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build project
         run: npm run build
