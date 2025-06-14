@@ -1,8 +1,7 @@
-import { Button, CurrencyInput, SingleToast } from "@skbkontur/react-ui";
+import { Button } from "@skbkontur/react-ui";
 import { createCalendarControlsPlugin } from "@schedule-x/calendar-controls";
 import { useState } from "react";
 import styles from "./CustomControls.module.css";
-import { Sheet } from "react-modal-sheet";
 import CreateEventWidget from "../../widgets/CreateEventWidget/CreateEventWidget";
 
 type CalendarControlsPlugin = ReturnType<typeof createCalendarControlsPlugin>;

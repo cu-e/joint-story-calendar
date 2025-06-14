@@ -22,7 +22,7 @@ function CreateEventWidget({ open, setOpen }: CreateEventWidgetProps) {
   const minDate = "1.09.2023";
   const maxDate = "02.05.2200";
   const [files, setFiles] = useState<File[]>([]);
-  const [music, setMusic] = useState<File>(null);
+  const [_music, setMusic] = useState<File>(null);
   const [onAutoMusic, setOnAutoMusic] = useState(false);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
