@@ -19,8 +19,6 @@ function CreateEventWidget({ open, setOpen }: CreateEventWidgetProps) {
   const [value, setValue] = useState<string>(
     new Date().toLocaleDateString("ru-RU")
   );
-  const minDate = "1.09.2023";
-  const maxDate = "02.05.2200";
   const [files, setFiles] = useState<File[]>([]);
   const [_music, setMusic] = useState<File>(null);
   const [onAutoMusic, setOnAutoMusic] = useState(false);
@@ -50,8 +48,6 @@ function CreateEventWidget({ open, setOpen }: CreateEventWidgetProps) {
                 value={value}
                 onValueChange={setValue}
                 enableTodayLink
-                minDate={minDate}
-                maxDate={maxDate}
               />
               <div className={styles["create-event-widget__grid"]}>
                 {files.length > 0 && (
