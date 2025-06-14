@@ -16,7 +16,7 @@ interface CreateEventWidgetProps {
 }
 
 function CreateEventWidget({ open, setOpen }: CreateEventWidgetProps) {
-  const [value, setValue] = useState<string>(
+  const [date, setDate] = useState<string>(
     new Date().toLocaleDateString("ru-RU")
   );
   const [files, setFiles] = useState<File[]>([]);
@@ -45,8 +45,8 @@ function CreateEventWidget({ open, setOpen }: CreateEventWidgetProps) {
             <div className={styles["create-event-widget__form"]}>
               <DatePicker
                 width={"100%"}
-                value={value}
-                onValueChange={setValue}
+                value={date}
+                onValueChange={setDate}
                 enableTodayLink
               />
               <div className={styles["create-event-widget__grid"]}>
