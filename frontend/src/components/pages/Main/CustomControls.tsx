@@ -1,7 +1,9 @@
-import { Button, CurrencyInput } from "@skbkontur/react-ui";
+import { Button, CurrencyInput, SingleToast } from "@skbkontur/react-ui";
 import { createCalendarControlsPlugin } from "@schedule-x/calendar-controls";
 import { useState } from "react";
 import styles from "./CustomControls.module.css";
+import { Sheet } from "react-modal-sheet";
+import CreateEventWidget from "../../widgets/CreateEventWidget/CreateEventWidget";
 
 type CalendarControlsPlugin = ReturnType<typeof createCalendarControlsPlugin>;
 
@@ -13,27 +15,42 @@ function CustomControls({
   children: React.ReactElement;
 }) {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
 
-  const format = (d: Date) => d.toISOString().split("T")[0];
+  const getLastDayOfMonth = (year: number, month: number) =>
+    new Date(year, month + 1, 0).getDate();
+
+  const shiftMonth = (base: Date, offset: number) => {
+    const day = base.getDate();
+    const year = base.getFullYear();
+    const month = base.getMonth() + offset;
+    const last = getLastDayOfMonth(year, month);
+    return new Date(year, month, Math.min(day, last));
+  };
+
+  const toLocalISO = (d: Date) =>
+    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(
+      d.getDate()
+    ).padStart(2, "0")}`;
 
   const goPrev = () => {
-    const curr = new Date(controls.getDate());
-    const prev = new Date(curr.getFullYear(), curr.getMonth(), 1);
-    controls.setDate(format(prev));
+    const prev = shiftMonth(currentDate, -1);
+    controls.setDate(toLocalISO(prev));
     setCurrentDate(prev);
   };
 
   const goNext = () => {
-    const curr = new Date(controls.getDate());
-    const next = new Date(curr.getFullYear(), curr.getMonth() + 2, 1);
-    controls.setDate(format(next));
+    const next = shiftMonth(currentDate, +1);
+    controls.setDate(toLocalISO(next));
     setCurrentDate(next);
   };
 
   const goToday = () => {
-    controls.setDate(format(new Date()));
-    setCurrentDate(new Date());
+    const today = new Date();
+    controls.setDate(toLocalISO(today));
+    setCurrentDate(today);
   };
+
   const monthLabel = (date: Date) => {
     const weekday = date
       .toLocaleString("ru-RU", { weekday: "long" })
@@ -78,9 +95,10 @@ function CustomControls({
       </aside>
       {children}
       <div className={styles["control-month"]}>
-        <Button size="large" use="primary">
+        <Button size="large" use="primary" onClick={() => setOpen(true)}>
           +
         </Button>
+        <CreateEventWidget open={open} setOpen={setOpen} />
       </div>
     </div>
   );
