@@ -12,13 +12,16 @@
   "dependencies": {
     "@fullcalendar/interaction": "^6.1.17",
     "@fullcalendar/timegrid": "^6.1.17",
+    "@heroicons/react": "^2.2.0",
     "@schedule-x/calendar-controls": "^2.32.0",
     "@schedule-x/events-service": "^2.32.0",
     "@schedule-x/react": "^2.32.0",
     "@schedule-x/theme-default": "^2.32.0",
     "@skbkontur/react-ui": "^5.1.4",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "motion": "^12.17.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-modal-sheet": "^4.4.0",
     "react-router": "^7.6.2"
   },
   "devDependencies": {
