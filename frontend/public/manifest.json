@@ -1,0 +1,10 @@
+{
+  "name": "Календарь",
+  "short_name": "Календарь",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
