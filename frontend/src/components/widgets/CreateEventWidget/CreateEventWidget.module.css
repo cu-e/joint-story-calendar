@@ -22,21 +22,6 @@
 .create-event-widget__textarea {
   height: 100px;
 }
-.create-event-widget__file {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 150px;
-  border: 0.1rem solid #c2c2c2;
-  border-radius: 10px;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-sizing: border-box;
-}
 .create-event-widget__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -45,9 +30,4 @@
 }
 .create-event-widget__grid > *:only-child {
   grid-column: 1 / -1;
-}
-.create-event-widget__file-delete {
-  position: absolute;
-  right: 2px;
-  bottom: 4px;
 }
